@@ -1,0 +1,119 @@
+import pytz
+from datetime import datetime
+import pyttsx3
+
+engine = pyttsx3.init()
+engine.setProperty('rate', 150)
+
+countries = {
+    "Iran": "Asia/Tehran",
+    "United States (New York)": "America/New_York",
+    "United States (Los Angeles)": "America/Los_Angeles",
+    "Canada (Toronto)": "America/Toronto",
+    "Brazil": "America/Sao_Paulo",
+    "Argentina": "America/Argentina/Buenos_Aires",
+    "United Kingdom": "Europe/London",
+    "Germany": "Europe/Berlin",
+    "France": "Europe/Paris",
+    "Italy": "Europe/Rome",
+    "Spain": "Europe/Madrid",
+    "Netherlands": "Europe/Amsterdam",
+    "Belgium": "Europe/Brussels",
+    "Switzerland": "Europe/Zurich",
+    "Austria": "Europe/Vienna",
+    "Sweden": "Europe/Stockholm",
+    "Norway": "Europe/Oslo",
+    "Denmark": "Europe/Copenhagen",
+    "Finland": "Europe/Helsinki",
+    "Poland": "Europe/Warsaw",
+    "Czech Republic": "Europe/Prague",
+    "Hungary": "Europe/Budapest",
+    "Greece": "Europe/Athens",
+    "Turkey": "Europe/Istanbul",
+    "Russia (Moscow)": "Europe/Moscow",
+    "Ukraine": "Europe/Kiev",
+    "Romania": "Europe/Bucharest",
+    "Bulgaria": "Europe/Sofia",
+    "Portugal": "Europe/Lisbon",
+    "Ireland": "Europe/Dublin",
+    "China": "Asia/Shanghai",
+    "Japan": "Asia/Tokyo",
+    "South Korea": "Asia/Seoul",
+    "India": "Asia/Kolkata",
+    "Pakistan": "Asia/Karachi",
+    "Bangladesh": "Asia/Dhaka",
+    "Thailand": "Asia/Bangkok",
+    "Vietnam": "Asia/Ho_Chi_Minh",
+    "Malaysia": "Asia/Kuala_Lumpur",
+    "Singapore": "Asia/Singapore",
+    "Indonesia (Jakarta)": "Asia/Jakarta",
+    "Philippines": "Asia/Manila",
+    "Saudi Arabia": "Asia/Riyadh",
+    "United Arab Emirates": "Asia/Dubai",
+    "Qatar": "Asia/Qatar",
+    "Kuwait": "Asia/Kuwait",
+    "Israel": "Asia/Jerusalem",
+    "Egypt": "Africa/Cairo",
+    "South Africa": "Africa/Johannesburg",
+    "Nigeria": "Africa/Lagos",
+    "Kenya": "Africa/Nairobi",
+    "Morocco": "Africa/Casablanca",
+    "Australia (Sydney)": "Australia/Sydney",
+    "Australia (Perth)": "Australia/Perth",
+    "New Zealand": "Pacific/Auckland",
+    "Mexico": "America/Mexico_City",
+    "Chile": "America/Santiago",
+    "Colombia": "America/Bogota",
+    "Peru": "America/Lima",
+    "Venezuela": "America/Caracas",
+    "Cuba": "America/Havana",
+    "Jamaica": "America/Jamaica",
+    "Dominican Republic": "America/Santo_Domingo",
+    "Iceland": "Atlantic/Reykjavik",
+    "Greenland": "America/Godthab",
+    "Nepal": "Asia/Kathmandu",
+    "Sri Lanka": "Asia/Colombo",
+    "Myanmar": "Asia/Yangon",
+    "Cambodia": "Asia/Phnom_Penh",
+    "Laos": "Asia/Vientiane",
+    "Mongolia": "Asia/Ulaanbaatar",
+    "Kazakhstan": "Asia/Almaty",
+    "Uzbekistan": "Asia/Tashkent",
+    "Afghanistan": "Asia/Kabul",
+    "Iraq": "Asia/Baghdad",
+    "Syria": "Asia/Damascus",
+    "Jordan": "Asia/Amman",
+    "Lebanon": "Asia/Beirut",
+    "Ethiopia": "Africa/Addis_Ababa",
+    "Tanzania": "Africa/Dar_es_Salaam",
+    "Uganda": "Africa/Kampala",
+    "Zimbabwe": "Africa/Harare",
+    "Zambia": "Africa/Lusaka",
+    "Algeria": "Africa/Algiers",
+    "Tunisia": "Africa/Tunis",
+    "Ghana": "Africa/Accra",
+    "Senegal": "Africa/Dakar",
+    "Bolivia": "America/La_Paz",
+    "Paraguay": "America/Asuncion",
+    "Uruguay": "America/Montevideo",
+    "Costa Rica": "America/Costa_Rica",
+    "Panama": "America/Panama",
+    "Guatemala": "America/Guatemala",
+    "Honduras": "America/Tegucigalpa",
+    "El Salvador": "America/El_Salvador",
+    "Nicaragua": "America/Managua",
+}
+
+for country, tz_name in countries.items():
+    try:
+        timezone = pytz.timezone(tz_name)
+        country_time = datetime.now(timezone)
+        formatted_time = country_time.strftime("%Y-%m-%d %H:%M:%S")
+
+        message = f"The current time in {country} is {formatted_time}"
+        print(message)
+        engine.say(message)
+        engine.runAndWait()
+
+    except Exception:
+        pass
