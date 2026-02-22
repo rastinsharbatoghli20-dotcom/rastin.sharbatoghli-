@@ -1,0 +1,38 @@
+# conversation of email
+# concatenate
+print("hello world")
+
+name=input("enter your name:")
+
+print("hello",name)
+
+print("how old are you",name,"?")
+
+age=int(input("enter your age:"))
+
+print("your age is",age)
+
+password=input("enter your password:")#
+if password==123456789:
+    print("password is correct")
+else:
+    print("password is incorrect")
+
+email=input("enter your email:")
+
+if email=="rastin.com":
+    print("email is correct")
+else:
+    print("email is incorrect")
+
+password=input("enter your email password:")
+if password=="123456":
+    print("password is correct")
+else:
+    print("password is incorrect")
+change=input("do you want to change your password?(y/n):")
+
+if change=="yes":
+    print("ok")
+else:
+    print("are you sure?")
