@@ -1,0 +1,31 @@
+# email generator
+
+# suggestion
+
+first_name =input("please enter your first name:")      # first name
+last_name =input("please enter your last name:")        # last name
+age =input("please enter your age:")      # age
+f =input("please enter your favorite number:")       # favorite number
+
+# suggestions
+email =[
+    f"{first_name}.{last_name}@gmail.com",
+    f"{first_name}.{last_name}{age}@gmail.com",
+    f"{last_name}{age}@gmail.com",
+    f"{first_name}.{last_name}{age}2025@gmail.com",
+    f"{last_name}.{age}{first_name}@gmail.com",
+    f"{first_name}{age}{age}{last_name}@gmail.com",
+    f"{first_name}{age}{last_name}@gmail.com",
+    f"{first_name}.{last_name}.{f}@gmail.com",
+    f"{first_name}{f}{last_name}@gmail.com",
+]
+print("suggestions for you :")
+print(email[0])
+print(email[1])
+print(email[2])
+print(email[3])
+print(email[4])
+print(email[5])
+print(email[6])
+print(email[7])
+print(email[8])
